@@ -5,7 +5,7 @@ from volume_management import show_volume_menu
 
 def show_main_menu():
     while True:
-        choice = input("1. Listing of information\n2. Virtual machine management\n3. Volume management\n4. Exit\n")
+        choice = input("\n1. Listing of information\n2. Virtual machine management\n3. Volume management\n4. Exit\n")
 
         if choice == "1":
             show_information_menu()
