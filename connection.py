@@ -1,3 +1,4 @@
+from openstack.exceptions import ConfigException
 from openstack import connect
 import sys
 
@@ -9,7 +10,12 @@ class ConnectionSingleton:
 
     @staticmethod
     def get_connection():
-        if ConnectionSingleton.__connection is None:
-            ConnectionSingleton.__connection = connect(cloud="CHI-220964", password=sys.argv[1])
+        try:
+            if ConnectionSingleton.__connection is None:
+                ConnectionSingleton.__connection = connect(cloud=sys.argv[1], password=sys.argv[2])
+        except ConfigException:
+            print("\nProvided cloud name was not found (please provide the one in the clouds.yaml file) "
+                  "OR the clouds.yaml file is missing\n")
+            exit(-1)
 
         return ConnectionSingleton.__connection

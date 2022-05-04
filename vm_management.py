@@ -108,7 +108,7 @@ def create_vm():
     except OpenStackCloudTimeout:
         print("Request timed out")
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 
@@ -139,7 +139,7 @@ def shut_down():
     except OpenStackCloudTimeout:
         print("Request timed out")
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 
@@ -181,7 +181,7 @@ def remove_vm():
     except OpenStackCloudTimeout:
         print("Request timed out")
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 
@@ -230,7 +230,7 @@ def clone_vm():
     except OpenStackCloudTimeout:
         print("Request timed out")
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 

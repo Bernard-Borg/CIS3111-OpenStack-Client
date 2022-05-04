@@ -83,7 +83,7 @@ def attach_volume():
     except OpenStackCloudTimeout:
         print("Request timed out")
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 
@@ -121,7 +121,7 @@ def detach_volume():
     except OpenStackCloudTimeout:
         print("Request timed out")
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 
@@ -163,7 +163,7 @@ def remove_volume():
         # Requests the deletion of the volume
         connection.delete_volume(name_or_id=id_to_delete, wait=True, timeout=60)
     except OpenStackCloudException:
-        print("An unknown error occurred")
+        print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
 
