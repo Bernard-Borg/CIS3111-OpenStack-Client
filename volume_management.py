@@ -19,6 +19,8 @@ def create_volume():
         size = handle_errors("Input volume size in GiB: ", check_int, int, "int", validate=True,
                              validate_range=(1, False))
 
+        print("\nCreating volume...\n")
+
         # Create volume
         volume = connection.create_volume(name=volume_name, description=description, size=size, wait=True, timeout=60)
 

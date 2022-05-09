@@ -4,11 +4,8 @@ from menu import show_main_menu
 from connection import ConnectionSingleton
 
 # Confirms that the user passed in an argument
-if len(sys.argv) < 2:
+if len(sys.argv) < 2 or len(sys.argv) < 3:
     print("Selected cloud (from the cloud.yaml file) and OpenStack CLI password required as arguments")
-    exit(1)
-elif len(sys.argv) < 3:
-    print("OpenStack CLI password required as argument")
     exit(1)
 
 connection = ConnectionSingleton().get_connection()

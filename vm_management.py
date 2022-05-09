@@ -93,6 +93,8 @@ def create_vm():
 
         security_group_name = security_options[chosen_security_group - 1]
 
+        print("\nCreating server...")
+
         # Creates the server
         server = connection.create_server(name=server_name, image=image_id, flavor=flavour_id,
                                           key_name=keypair_name, availability_zone="nova",
