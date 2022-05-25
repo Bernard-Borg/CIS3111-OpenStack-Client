@@ -98,7 +98,7 @@ def create_vm():
         # Creates the server
         server = connection.create_server(name=server_name, image=image_id, flavor=flavour_id,
                                           key_name=keypair_name, availability_zone="nova",
-                                          security_groups=[security_group_name])
+                                          security_groups=[security_group_name], network="public")
 
         # Displays the attributes of the created server
         print("\nCreated server;\n")
@@ -109,7 +109,7 @@ def create_vm():
         print(tabulate(table, headers=["Field", "Value"], tablefmt="psql"))
     except OpenStackCloudTimeout:
         print("Request timed out")
-    except OpenStackCloudException:
+    except OpenStackCloudException as e:
         print("An OpenStack error occurred")
     except ConnectFailure:
         print("Lost internet connection")
@@ -220,7 +220,8 @@ def clone_vm():
                                           flavor=server_to_clone['flavor']['original_name'],
                                           key_name=server_to_clone['key_name'],
                                           availability_zone="nova",
-                                          security_groups=server_to_clone["security_groups"][0]["name"])
+                                          security_groups=server_to_clone["security_groups"][0]["name"],
+					  network="public")
 
         # Displays attributes of the cloned server
         print("\nCreated clone server;\n")
